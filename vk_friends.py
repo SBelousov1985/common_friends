@@ -49,6 +49,8 @@ def get_common_friends_list_detailed(token, uids):
 if __name__ == '__main__':
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  # иначе антивирус Касперского мешает
     TOKEN = get_token()
-    uids = [7677533, 114266546, 24529523]
+    # uids = [7677533, 114266546, 24529523]
+    uids_str = input('Введите идентификаторы пользователей через запятую: ').split(',')
+    uids = list(map(int, uids_str))
     common_friends = get_common_friends_list_detailed(TOKEN, uids)
     pprint(common_friends)
